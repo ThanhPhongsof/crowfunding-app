@@ -5,7 +5,6 @@ import FormGroup from "components/common/FormGroup";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import { Label } from "components/label";
 import { Input } from "components/input";
 import { IconEyeToggle } from "components/icons";
@@ -14,10 +13,7 @@ import { Button } from "components/button";
 
 const schema = yup.object({
   name: yup.string().required("This field is required"),
-  email: yup
-    .string()
-    .required("This field is required")
-    .email("Invalid email address"),
+  email: yup.string().required("This field is required").email(""),
   password: yup
     .string()
     .required("This field is required")
@@ -45,20 +41,7 @@ const SignUpPage = () => {
     useToogleValue();
 
   return (
-    <LayoutAuthentication heading="Sign Up">
-      <p className="mb-6 text-xs font-normal text-center lg:mb-8 lg:text-sm text-text3">
-        Already have an account?{" "}
-        <Link to="/sign-in" className="font-medium underline text-primary">
-          Sign in
-        </Link>
-      </p>
-      <button className="flex items-center justify-center w-full py-3 mb-5 text-base font-semibold border gap-x-3 border-strock dark:border-darkStroke rounded-xl text-text2 dark:text-white">
-        <img srcSet="/icon-google.png 2x" alt="icon-google" />
-        <span>Sign up with google</span>
-      </button>
-      <p className="mb-4 text-xs font-normal text-center lg:text-sm lg:mb-8 text-text2 dark:text-white">
-        Or sign up with email
-      </p>
+    <LayoutAuthentication heading="Sign Up" typeLayout={0}>
       <form autoComplete="off" onSubmit={handleSubmit(handleSignUp)}>
         <FormGroup>
           <Label htmlFor="fullname">Full Name *</Label>

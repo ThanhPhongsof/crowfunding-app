@@ -3,12 +3,12 @@ import { useController } from "react-hook-form";
 import PropTypes from "prop-types";
 import { withErrorBoundary } from "react-error-boundary";
 import ErrorComponent from "components/common/ErrorComponent";
+import classNames from "utils/className";
 
 const Input = ({
   control,
   name,
   type = "text",
-  className = "",
   error = "",
   placeholder = "",
   children,
@@ -16,15 +16,16 @@ const Input = ({
 }) => {
   const { field } = useController({ control, name, defaultValue: "" });
   return (
-    // <div className="relative flex justify-between items-center">
     <div className="relative">
       <input
         type={type}
-        className={`w-full px-6 py-4 text-sm font-medium border rounded-xl text-text1 dark:text-white placeholder:text-text4 dark:placeholder:text-text2 bg-transparent ${
+        className={classNames(
+          "w-full px-6 py-4 text-sm font-medium border rounded-xl placeholder:text-text4 dark:placeholder:text-text2 bg-transparent",
           error.length > 0
-            ? "border-error"
-            : "border-strock dark:border-darkStroke"
-        } ${children ? "pr-16" : ""} ${className}`}
+            ? "border-error text-error"
+            : "text-text1 dark:text-white border-strock dark:border-darkStroke",
+          children ? "pr-16" : ""
+        )}
         placeholder={`${error.length > 0 ? "" : placeholder}`}
         {...rest}
         {...field}
@@ -46,7 +47,6 @@ Input.propTypes = {
   name: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
-  className: PropTypes.string,
   erorr: PropTypes.string,
   children: PropTypes.node,
 };
