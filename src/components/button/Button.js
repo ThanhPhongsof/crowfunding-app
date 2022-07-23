@@ -1,14 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "utils/className";
+import { withErrorBoundary } from "react-error-boundary";
+import ErrorComponent from "components/common/ErrorComponent";
 
-const Button = ({
-  type = "button",
-  className,
-  children,
-  isLoading = false,
-  ...rest
-}) => {
+const Button = ({ type, className, children, isLoading = false, ...rest }) => {
   const child = !!isLoading ? (
     <div className="w-10 h-10 rounded-full border-4 border-white border-t-transparent border-b-transparent animate-spin"></div>
   ) : (
@@ -37,4 +33,6 @@ Button.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-export default Button;
+export default withErrorBoundary(Button, {
+  FallbackComponent: ErrorComponent,
+});

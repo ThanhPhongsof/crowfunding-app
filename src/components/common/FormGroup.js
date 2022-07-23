@@ -1,4 +1,6 @@
 import React from "react";
+import { withErrorBoundary } from "react-error-boundary";
+import ErrorComponent from "./ErrorComponent";
 
 const FormGroup = ({ children }) => {
   return (
@@ -8,4 +10,6 @@ const FormGroup = ({ children }) => {
   );
 };
 
-export default FormGroup;
+export default withErrorBoundary(FormGroup, {
+  FallbackComponent: ErrorComponent,
+});
