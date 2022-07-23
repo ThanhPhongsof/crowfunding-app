@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "utils/className";
+import { withErrorBoundary } from "react-error-boundary";
+import ErrorComponent from "components/common/ErrorComponent";
 
 const Label = ({ children, htmlFor = "", className = "" }) => {
   return (
@@ -21,4 +23,6 @@ Label.propTypes = {
   htmlFor: PropTypes.string,
 };
 
-export default Label;
+export default withErrorBoundary(Label, {
+  FallbackComponent: ErrorComponent,
+});

@@ -1,4 +1,6 @@
+import ErrorComponent from "components/common/ErrorComponent";
 import React from "react";
+import { withErrorBoundary } from "react-error-boundary";
 import classNames from "utils/className";
 
 const Checkbox = ({
@@ -48,4 +50,6 @@ const Checkbox = ({
   );
 };
 
-export default Checkbox;
+export default withErrorBoundary(Checkbox, {
+  FallbackComponent: ErrorComponent,
+});
