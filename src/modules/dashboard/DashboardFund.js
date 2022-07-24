@@ -4,7 +4,7 @@ import { withErrorBoundary } from "react-error-boundary";
 
 const DashboardFund = () => {
   return (
-    <div className="flex items-center gap-x-2 text-text2 text-base font-semibold cursor-pointer">
+    <div className="hidden lg:flex items-center gap-x-2 text-text2 text-base font-semibold cursor-pointer">
       <span>
         <svg
           width="24"
