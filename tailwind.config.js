@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        "3xl": "1792px",
+        "4xl": "2048px",
+      },
       fontFamily: {
         primary: ["Epilogue", "sans-serif;"],
       },

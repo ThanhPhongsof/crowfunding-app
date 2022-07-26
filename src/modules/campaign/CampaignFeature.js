@@ -8,9 +8,9 @@ import CampaignMeta from "./parts/CampaignMeta";
 
 const CampaignFeature = () => {
   return (
-    <div className="flex items-center flex-start gap-x-7 w-full max-w-[1048px] 2xl:max-w-[1677px]">
-      <CampaignImage className="h-[266px] 2xl:h-[366px] w-full flex-1 flex-shrink-0"></CampaignImage>
-      <div className="my-4 2xl:my-0 flex-1 max-w-[435px] 2xl:max-w-[486px]">
+    <div className="flex flex-col md:flex-row items-center flex-start gap-x-7 w-full max-w-[328px] md:max-w-[595px] lg:max-w-[850px] 2xl:max-w-[1243px]">
+      <CampaignImage className="h-[210px] md:h-[266px] 2xl:h-[366px] md:w-full flex-1 flex-shrink-0"></CampaignImage>
+      <div className="my-4 mr-auto md:mr-0 2xl:my-0 flex-1 max-w-[435px]">
         <CampaignCategory text="Education"></CampaignCategory>
         <CampaignInfo
           title="Powered Kits Learning Boxes"

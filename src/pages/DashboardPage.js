@@ -1,48 +1,36 @@
 import LayoutDashboard from "layout/LayoutDashboard";
 import Heading from "components/common/Heading";
-import ErrorComponent from "components/common/ErrorComponent";
-import CampaignItem from "modules/campaign/CampaignItem";
-import CampaignGrid from "modules/campaign/CampaignGrid";
-import { withErrorBoundary } from "react-error-boundary";
-import { v4 } from "uuid";
-import CampaignFeature from "modules/campaign/CampaignFeature";
 import Gap from "components/common/Gap";
+import ErrorComponent from "components/common/ErrorComponent";
+import CampaignGrid from "modules/campaign/CampaignGrid";
+import CampaignFeature from "modules/campaign/CampaignFeature";
+import { withErrorBoundary } from "react-error-boundary";
 
 const DashboardPage = () => {
   return (
     <LayoutDashboard>
       {/* start: Your Campaign 2xl:366 max-w-1648px */}
-      <Heading number={4}>Your Campaign</Heading>
-      <CampaignFeature></CampaignFeature>
+      <div className="page-container">
+        <Heading number={4}>Your Campaign</Heading>
+        <CampaignFeature></CampaignFeature>
+      </div>
       {/* end: Your Campaign */}
       <Gap></Gap>
       {/* start: Popular Campaign */}
-      <Heading>Popular Campaign</Heading>
-      {/* <CampaignGrid>
-        {Array(6)
-          .fill(0)
-          .map((item) => (
-            <CampaignItem key={v4()}></CampaignItem>
-          ))}
-      </CampaignGrid> */}
+      <div className="page-container">
+        <Heading>Popular Campaign</Heading>
+        <CampaignGrid></CampaignGrid>
+      </div>
       {/* end: Popular Campaign */}
       <Gap></Gap>
       {/* start: Recent Campaign */}
-      <Heading>Recent Campaign</Heading>
-      {/* <CampaignGrid>
-        {Array(6)
-          .fill(0)
-          .map((item) => (
-            <CampaignItem key={v4()}></CampaignItem>
-          ))}
-      </CampaignGrid> */}
+      <div className="page-container">
+        <Heading>Recent Campaign</Heading>
+        <CampaignGrid></CampaignGrid>
+      </div>
       {/* end: Recent Campaign */}
     </LayoutDashboard>
   );
-};
-
-const DashboardPage1 = () => {
-  return <LayoutDashboard></LayoutDashboard>;
 };
 
 export default withErrorBoundary(DashboardPage, {

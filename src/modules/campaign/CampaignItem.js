@@ -8,7 +8,7 @@ import CampaignMeta from "./parts/CampaignMeta";
 
 const CampaignItem = () => {
   return (
-    <div>
+    <div className="w-[256px] h-[380px] md:w-[288px] md:h-[396px]">
       <CampaignImage></CampaignImage>
       <div className="px-5 py-4">
         <CampaignCategory text="Education"></CampaignCategory>

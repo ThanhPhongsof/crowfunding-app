@@ -60,16 +60,16 @@ const DashboardSidebar = () => {
         <NavLink
           to={link.url}
           key={link.title}
-          // className={({ isActive }) =>
-          //   isActive
-          //     ? "bg-primaryExtra dark:bg-darkStroke text-primary"
-          //     : undefined
-          // }
-          className={classNames(
-            "flex items-center gap-x-5 h-[52px] w-full mb-4 md:justify-center md:w-12 md:h-12 md:rounded-3xl md:mb-8 text-iconColor dark:text-text3 md:last:bg-white dark:bg-darkSecondary md:last:shadow-sdprimary dark:last:shadow-none  md:last:mt-auto"
-          )}
+          className={({ isActive }) =>
+            classNames(
+              "flex items-center gap-x-5 h-[52px] w-full mb-4 md:justify-center md:w-12 md:h-12 md:rounded-3xl md:mb-8 dark:text-text3 md:last:bg-white dark:bg-darkSecondary md:last:shadow-sdprimary dark:last:shadow-none  md:last:mt-auto",
+              isActive
+                ? "bg-primaryExtra dark:bg-darkStroke text-primary dark:text-primary"
+                : "text-iconColor dark:text-text3"
+            )
+          }
         >
-          <span className="">{link.icon}</span>
+          <span>{link.icon}</span>
           <span className="md:hidden">{link.title}</span>
         </NavLink>
       ))}
