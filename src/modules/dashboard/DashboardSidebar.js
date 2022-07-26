@@ -42,7 +42,7 @@ const sidebarLinks = [
   {
     icon: <IconLogout></IconLogout>,
     title: "Logout",
-    url: "#",
+    url: "/out",
     onClick: () => {},
   },
   {
@@ -55,17 +55,21 @@ const sidebarLinks = [
 
 const DashboardSidebar = () => {
   return (
-    <div className="w-full md:w-[76px] bg-white rounded-3xl px-[14px] py-10 shadow-[10px_10px_rgba(218,_213,_213,_0.15)] flex flex-col flex-shrink-0">
+    <div className="w-full h-[554px] max-w-[324px] md:w-[76px] bg-white dark:bg-darkSecondary rounded-3xl px-[14px] py-10 shadow-[10px_10px_rgba(218,_213,_213,_0.15)] dark:shadow-none hidden md:flex flex-col flex-shrink-0">
       {sidebarLinks.map((link) => (
         <NavLink
           to={link.url}
           key={link.title}
-          className={classNames(
-            "flex items-center gap-x-5 md:justify-center md:w-12 md:h-12 md:rounded-3xl md:mb-8 text-iconColor last:bg-white last:shadow-sdprimary  md:last:mt-auto",
-            ({ isActive }) => (isActive ? "bg-primaryExtra text-primary" : "")
-          )}
+          className={({ isActive }) =>
+            classNames(
+              "flex items-center gap-x-5 h-[52px] w-full mb-4 md:justify-center md:w-12 md:h-12 md:rounded-3xl md:mb-8 dark:text-text3 md:last:bg-white dark:bg-darkSecondary md:last:shadow-sdprimary dark:last:shadow-none  md:last:mt-auto",
+              isActive
+                ? "bg-primaryExtra dark:bg-darkStroke text-primary dark:text-primary"
+                : "text-iconColor dark:text-text3"
+            )
+          }
         >
-          <span className="">{link.icon}</span>
+          <span>{link.icon}</span>
           <span className="md:hidden">{link.title}</span>
         </NavLink>
       ))}

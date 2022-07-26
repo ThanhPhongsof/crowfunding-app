@@ -7,11 +7,14 @@ import DashboardTopbar from "modules/dashboard/DashboardTopbar";
 
 const LayoutDashboard = ({ children }) => {
   return (
-    <div className="p-10 bg-lite">
+    <div className="p-10 bg-lite dark:bg-darkbg">
       <DashboardTopbar></DashboardTopbar>
+      <div className="hidden">
+        <DashboardSidebar></DashboardSidebar>
+      </div>
       <div className="flex items-start gap-x-10">
         <DashboardSidebar></DashboardSidebar>
-        <div className="flex-1">{children}</div>
+        <div className="md:flex-1">{children}</div>
       </div>
     </div>
   );

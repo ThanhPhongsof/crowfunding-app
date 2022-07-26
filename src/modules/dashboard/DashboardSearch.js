@@ -4,12 +4,12 @@ import { withErrorBoundary } from "react-error-boundary";
 
 const DashboardSearch = () => {
   return (
-    <div className="flex items-center bg-white rounded-full p-2 w-full shadow-[10px_10px_rgba(218,_213,_213,_0.15)] ">
+    <div className="flex items-center bg-white dark:bg-darkSecondary rounded-full p-2 w-full shadow-[10px_10px_rgba(218,_213,_213,_0.15)] dark:shadow-none ">
       <div className="flex-1 px-5">
         <input
           type="text"
           placeholder="Do fundrise now"
-          className="bg-transparent text-sm placeholder:text-text4 text-text1 w-full"
+          className="bg-transparent text-sm placeholder:text-text4 dark:placeholder:text-text2 text-text1 dark:text-white w-full"
         />
       </div>
       <button
