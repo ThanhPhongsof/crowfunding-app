@@ -10,7 +10,7 @@ const CampaignMeta = ({ amout, text, size }) => {
       <span
         className={classNames(
           "text-text2 dark:text-text4 font-semibold",
-          size === "small" ? "text-sm" : "text-xl 2xl:text-2xl"
+          size === "small" ? "text-sm" : "text-xl"
         )}
       >
         {amout}
@@ -18,7 +18,7 @@ const CampaignMeta = ({ amout, text, size }) => {
       <span
         className={classNames(
           "text-text4",
-          size === "small" ? "text-xs" : "text-base 2xl:text-lg"
+          size === "small" ? "text-xs" : "text-base"
         )}
       >
         {text}

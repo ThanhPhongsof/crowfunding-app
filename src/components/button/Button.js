@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "utils/className";
 import { withErrorBoundary } from "react-error-boundary";
 import ErrorComponent from "components/common/ErrorComponent";
+import { Link } from "react-router-dom";
 
 const Button = ({ type, className, children, isLoading = false, ...rest }) => {
   const child = !!isLoading ? (
@@ -11,12 +12,44 @@ const Button = ({ type, className, children, isLoading = false, ...rest }) => {
     children
   );
 
+  let defaultBtnColor = "";
+  switch (rest.kind) {
+    case "primary":
+      defaultBtnColor = "bg-primary text-white";
+      break;
+    case "secondary":
+      defaultBtnColor = "bg-secondary text-white";
+      break;
+    case "ghost":
+      defaultBtnColor = "bg-secondary text-secondary bg-opacity-10";
+      break;
+    default:
+      break;
+  }
+
+  if (rest.href) {
+    return (
+      <Link
+        to={rest.href}
+        className={classNames(
+          "defaultBtnClassName",
+          defaultBtnColor,
+          className
+        )}
+        {...rest}
+      >
+        {child}
+      </Link>
+    );
+  }
+
   return (
     <button
       type={type}
       className={classNames(
-        "p-4 text-base text-white font-semibold flex items-center justify-center rounded-lg min-h-[56px]",
+        "defaultBtnClassName",
         !!isLoading ? "opacity-50 pointer-events-none" : "",
+        defaultBtnColor,
         className
       )}
       {...rest}
@@ -31,6 +64,8 @@ Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   isLoading: PropTypes.bool,
+  href: PropTypes.string,
+  kind: PropTypes.oneOf(["primary", "secondary", "ghost"]),
 };
 
 export default withErrorBoundary(Button, {
