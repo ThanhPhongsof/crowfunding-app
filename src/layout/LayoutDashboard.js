@@ -4,10 +4,12 @@ import ErrorComponent from "components/common/ErrorComponent";
 import { withErrorBoundary } from "react-error-boundary";
 import DashboardSidebar from "modules/dashboard/DashboardSidebar";
 import DashboardTopbar from "modules/dashboard/DashboardTopbar";
+import Overlay from "components/common/Overlay";
 
 const LayoutDashboard = ({ children }) => {
   return (
     <div className="p-10 bg-lite dark:bg-darkbg">
+    <Overlay></Overlay>
       <DashboardTopbar></DashboardTopbar>
       <div className="hidden">
         <DashboardSidebar></DashboardSidebar>

@@ -10,7 +10,7 @@ const CampaignInfo = ({ title, desc, size }) => {
           "text-text1 dark:text-white",
           size === "small"
             ? "text-base font-semibold mb-1"
-            : "text-xl font-bold mb-4 2xl:text-2xl 2xl:mb-6"
+            : "text-xl font-bold mb-4"
         )}
       >
         {title}
@@ -18,9 +18,7 @@ const CampaignInfo = ({ title, desc, size }) => {
       <p
         className={classNames(
           "text-text3 break-all font-normal",
-          size === "small"
-            ? "text-xs mb-4"
-            : "text-sm mb-3 2xl:text-base 2xl:mb-5"
+          size === "small" ? "text-xs mb-4" : "text-sm mb-3"
         )}
       >
         {desc}
